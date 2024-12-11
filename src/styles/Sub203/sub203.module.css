@@ -150,6 +150,23 @@
     margin-top: 72px;
 }
     
+@media screen and (max-width: 1380px) {
+    .content_container{
+        width:95%;
+    }
+    .search_text{
+        margin-left: 2.5%;
+    }
+    .search_bar{
+        margin-left: 2.5%;
+    }
+    .search_icon{
+        right: 2.5%;
+    }
+    .search_bar{
+        width: 95%;
+    }
+}
 @media screen and (max-width: 1000px) {
     .medi_list{
         width: 100%;    

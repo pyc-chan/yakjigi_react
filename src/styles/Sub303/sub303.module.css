@@ -77,10 +77,25 @@
     
 }
     
+
+@media screen and (max-width: 1380px) {
+    .content_container{
+        width:95%;
+    }
+    .search_text{
+        margin-left: 2.5%;
+    }
+    .search_bar{
+        margin-left: 2.5%;
+        width: 95%;
+    }
+    .search_icon{
+        right: 2.5%;
+    }
+}
 @media screen and (max-width: 768px) {
     .section_contain{
         flex-direction: column;
         align-items: center;
     }
-    
 }
