@@ -10,6 +10,7 @@ import '../node_modules/aos/dist/aos.css';
 import { useEffect } from 'react';
 import 'reset-css'; 
 import Sub303 from './pages/Sub303/Sub303';
+import Sub203 from './pages/Sub203/Sub203';
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
             <Routes>
                <Route path='/' element={<Container />} />
                <Route path='/Sub104' element={<Sub104 />} />
+               <Route path='/Sub203' element={<Sub203 />} />
                <Route path='/Sub303' element={<Sub303 />} />
             </Routes>
             <Footer />
