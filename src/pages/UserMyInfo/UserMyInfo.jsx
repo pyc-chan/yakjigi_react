@@ -296,8 +296,10 @@
                             <input className={styles.input_id} value={userData.userNickName} onChange={nickNameChange} readOnly={!isEditingNickName} />
                             {isEditingNickName ?
                                 <>
-                                    <button type="submit" className={styles.input_submit}>저장</button>
-                                    <button className={styles.input_cancel} onClick={editingCancel}>취소</button>
+                                    <div className={styles.input_submit_cancel}>
+                                        <button type="submit" className={styles.input_submit}>저장</button>
+                                        <button className={styles.input_cancel} onClick={editingCancel}>취소</button>
+                                    </div>
                                 </> :
                                 <button className={styles.input_edit} onClick={toggleEditingNickName}>변경하기</button>
                             }
@@ -313,7 +315,7 @@
                                 <div className={styles.input_info_div}>
                                     <span className={styles.input_span}>· 나를 잘 표현할 이미지를 등록해 주세요!</span> <br />
                                     <span className={styles.input_span}>· 150 X 150px 이상의 이미지 사용을 권장합니다</span> <br />
-                                    <span className={styles.input_span}>· 사진은 10MB 미만의 이미지를 등록해 주세요</span> <br />
+                                    <span className={styles.input_span}>· 사진은 10MB 미만의 이미지를 등록해 주세요</span>
                                 </div>
                             </div>
                             
@@ -323,8 +325,10 @@
                             {isEditingProfile ? (
                                 <>
                                     <button onClick={fileClick} className={styles.input_file_find}>파일 찾기</button>
-                                    <button type="submit" className={styles.input_submit}>저장</button>
-                                    <button className={styles.input_cancel} onClick={editingCancel}>취소</button>
+                                    <div className={styles.input_submit_cancel}>
+                                        <button type="submit" className={styles.input_submit}>저장</button>
+                                        <button className={styles.input_cancel} onClick={editingCancel}>취소</button>
+                                    </div>
                                 </>
                             ) : (
                                 <button className={styles.input_edit} onClick={toggleEditingProfile}>변경하기</button>
@@ -337,15 +341,17 @@
                         <hr className={styles.input_hr}/>
                         <form onSubmit={submitGender}>
                             <span className={styles.input_title}>성별</span>
-                            <label className={styles.input_label}>
-                                <input type="radio" className={styles.input_radio} value={"남자"} name='gender' checked={userData.userGender === '남자'} onChange={genderChange} /> 남자
-                            </label>
-                            <label className={styles.input_label}>
-                                <input type="radio" className={styles.input_radio} value={"여자"} name='gender' checked={userData.userGender === '여자'} onChange={genderChange} /> 여자
-                            </label>
-                            <label className={styles.input_label}>
-                                <input type="radio" className={styles.input_radio} value={"기타"} name='gender' checked={userData.userGender === '기타'} onChange={genderChange} /> 기타
-                            </label>
+                            <div className={styles.input_label_div}>
+                                <label className={styles.input_label}>
+                                    <input type="radio" className={styles.input_radio} value={"남자"} name='gender' checked={userData.userGender === '남자'} onChange={genderChange} /> 남자
+                                </label>
+                                <label className={styles.input_label}>
+                                    <input type="radio" className={styles.input_radio} value={"여자"} name='gender' checked={userData.userGender === '여자'} onChange={genderChange} /> 여자
+                                </label>
+                                <label className={styles.input_label}>
+                                    <input type="radio" className={styles.input_radio} value={"기타"} name='gender' checked={userData.userGender === '기타'} onChange={genderChange} /> 기타
+                                </label>
+                            </div>
                             {isEditingGender ? 
                                 <>
                                     <button type='submit' className={styles.input_submit}>저장</button>
