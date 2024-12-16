@@ -39,6 +39,7 @@
 .input_title{
     font-size: 18px;
     font-weight: 500;
+    margin: 20px 0;
     margin-right: 30px; 
     display: inline-block;
     width: 140px;
@@ -51,6 +52,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding-left: 8px;
+    margin: 20px 0;
 }
 
 .input_edit{
@@ -60,13 +62,14 @@
     color: #4553ad;
     background-color: #fff;
     border-radius: 5px;
+    margin: 20px 0;
     margin-left: 16px;
     font-size: 16px;
 }
 
 .input_hr{
     border: 1px solid #ddd;
-    margin: 30px 0;
+    margin: 10px 0;
 }
 .input_profile_div{
     display: flex;
@@ -91,8 +94,6 @@
     width: 150px;
     height: 150px;
     object-fit: cover;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .input_findfile{
@@ -113,7 +114,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding-left: 8px;
-    
+    margin: 20px 0;
 }
 
 .input_profile_none{
@@ -125,9 +126,17 @@
     height: 40px;
     background-color: #999;
     color: #fff;
+    border: none;
     border-radius: 5px;
+    margin-top: 20px;
     margin-left: 16px;
     font-size: 16px;
+}
+
+.input_label_div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .input_label{
@@ -165,24 +174,62 @@
     font-size: 16px;
 }
 
+.input_submit_cancel{
+    display: inline-block;
+    margin: 20px 0;
+}
+
+
 @media screen and (max-width: 1380px) {
-    .content_container{
+    .container{
         width:95%;
     }
-    .search_text{
-        margin-left: 2.5%;
+}
+@media screen and (max-width: 1000px) {
+    .input_submit_cancel{
+        display: flex;
+        flex-direction: row;
     }
-    .search_bar{
-        margin-left: 2.5%;
-        width: 95%;
+    .input_submit{
+        margin-left: 0;
     }
-    .search_icon{
-        right: 2.5%;
+    .input_profile{
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 768px) {
-    .section_contain{
+    .input_title{
+        display: block;
+        margin-bottom: 0px;
+    }
+    .input_profile{
+        margin-bottom: 0px;
+        width: 95%;
+        max-width: 500px;
+    }
+    .input_profile_div{
         flex-direction: column;
-        align-items: center;
+    }
+    .input_file_find{
+        display: block;
+        margin-left: 0;
+    }
+    .input_info_div{
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .input_edit{
+        display: block;
+        margin-left: 0;
+    }
+    .input_cancel{
+        margin-right: 0;
+    }
+    .input_label_div{
+        margin-bottom: 10px;
+    }
+    .input_id{
+        margin-bottom: 10px;
     }
 }
