@@ -22,6 +22,8 @@ function Sub104(props) {
                     </div>
                 </div>
                 <div className={styles.section_contain}>
+                    {/* 컴포넌트 */}
+                    {/* 백그라운드 사진은 css에 있음 */}
                     <OnMouseHover/>
                     <OnMouseHover/>
                 </div>

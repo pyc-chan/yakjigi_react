@@ -28,6 +28,7 @@
     align-items: center;
     width: 100%;
     background-color: #f0f0f0;
+    margin-bottom: 50px;
 }
 .section_contain{
     margin: auto;
@@ -62,96 +63,107 @@
     top: 0px;
     color: #fff;
 }
-.hrtag{
-    border: 1px solid #000;
-    margin-top: 20px;
-    margin-bottom: 0px  ;
-}
-.h3tag{
-    font-size: 28px;
-    margin-top: 60px;
-}
+
 .search_text{
     font-size: 18px;
 }
+
 .content_container{
     max-width: 1320px;
     width: 100%;
     margin: 0 auto;
 }
+
 .API_section{
     width: 100%;
     margin: 0 auto;
 }
-.medi_result01{
-    text-align: left;
-    
-}
-.medi_infos{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 48px;
-    margin-bottom: 50px;
-}
-.image_medi{
-    max-width: 300px;
-    max-height: 200px;
-    object-fit: cover;
-}
-.medi_title{
-    font-size: 20px;
-    color: #333;
-    line-height: 35px;
-}
-.medi_info{
-    font-size: 16px;
-    color: #333;
-    line-height: 35px;  
-}
-.medi_detail{
-    font-size: 16px;
-    color: #555;
-    line-height: 35px;
-    margin-left: 20px;
-}
 
-.medi_list{
-    display: flex;
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 120px;
-}
-
-.medi_div{
-    margin-left: 30px;
-}
-
-.medi_table td {
-    border: 1px solid #ddd;
-    font-size: 18px;
-    height: 60px;
-    vertical-align: middle;
-    min-width: 160px;
-}
-.medi_table{
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-.hrddd{
-    border-color: #ddd;
-}
 .titlecount{
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
+
 .countnum{
     font-size: 16px;
     text-align: right;
     margin-top: 72px;
 }
+
+.search_box{
+    width: 200px;   
+    min-height: 60px;
+    border-radius: 40px;
+    background-color: #fff;
+}       
+.search_div{
+    position: relative;
+}
+.box_true{
+    background-color: #4553AD;
+    color:#fff;
+    border: 1px solid #ddd;
+}
+.box_false{
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.search_check{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    max-width: 1320px;
+    margin: 0px auto;
+}
+
+.box_true:hover{
+    cursor: pointer;
+}
+
+.box_false:hover{
+    cursor: pointer;
+}
+
+.search_icon:hover{
+    cursor: pointer;
+}
+
+.hrtag{
+    border: 1px solid #000;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.h3tag{
+    font-size: 26px;
+    margin-top: 60px;
+}
+
+.medi_result01{
+    text-align: left;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.medi_table{
+    text-align: center;
+}
+
+.medi_table table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablecell{
+    border: 1px solid #ddd;
+    height: 60px;
+    min-height: 60px;
+    min-width: 200px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+    
     
 @media screen and (max-width: 1380px) {
     .content_container{
@@ -169,12 +181,11 @@
     .search_bar{
         width: 95%;
     }
+    .search_check{
+        width: 95%;
+    }
 }
 @media screen and (max-width: 1000px) {
-    .medi_list{
-        width: 100%;    
-        overflow-x: auto;
-    }
     
 }
 @media screen and (max-width: 768px) {
@@ -182,16 +193,6 @@
         flex-direction: column;
         align-items: center;
     }
-    .medi_info{
-        display: none;
-    }
-    .medi_detail{
-        margin-left: 0px;
-    }
 }
 @media screen and (max-width: 480px) {
-    .medi_infos{
-        display: flex;
-        flex-direction: column;
-    }
 }

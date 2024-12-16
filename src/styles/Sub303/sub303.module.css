@@ -3,10 +3,12 @@
 }
 .titles{
     padding-top: 80px;
+    margin-bottom: 30px;
 }
-.maintitle{
+.maintitle{ 
     font-size: 35px;
     line-height: 60px;
+    font-weight: bold;
 }
 .subtitle{
     font-size: 20px;
@@ -43,7 +45,7 @@
     margin-bottom: 50px;
     border-radius: 25px;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 20px;
 }
 .search_text{
@@ -53,10 +55,12 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: none;
     background-color: #333; 
     position: absolute;
     right: 0px;
     top: 0px;
+    color: #fff;
 }
 .material-symbols-outlined{
     color: #fff;

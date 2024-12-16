@@ -2,6 +2,7 @@
     import styles from '../../styles/UserMyInfo/UserMyInfo.module.css'
     import 'reset-css'
     import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
     function UserMyInfo(props) {
         
         // 유저 데이터    
@@ -35,6 +36,9 @@
         const [isEditingGender, setIsEditingGender] = useState(false);
         const [isEditingPhone, setIsEditingPhone] = useState(false);
         const [isEditingOther, setIsEditingOther] = useState(false);
+        
+        // 페이지 이동
+        const navigator = useNavigate();
         
         // 렌더링시 값 가져옴 
         /* useEffect(() => {
@@ -272,9 +276,10 @@
             }
         };
         
+        // 비밀번호 변경
         const passwordChange = () => {
-            
-        }
+            navigator('/UserPWChange');
+        };
         
         return (
             <>

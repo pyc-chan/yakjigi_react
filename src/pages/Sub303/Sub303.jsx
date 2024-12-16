@@ -6,14 +6,14 @@ function Sub303(props) {
         <>
         <div className={styles.titles}>
             <h2 className={styles.maintitle}>보도자료 찾아보기</h2>
-            <p className={styles.subtitle}>원하는 지역에서의 녹지행사를 찾아보세요</p>
+            <p className={styles.subtitle}>의약품과 관련된 보도자료를 찾아보세요</p>
         </div>
         <div className={styles.submain}>
             <div className={styles.contents}>
                 <p className={styles.search_text}>검색어 검색</p>
                 <div style={{position: 'relative'}}>
                 <form action="">
-                    <input type="text" className={styles.search_bar}/>
+                    <input type="text" className={styles.search_bar} placeholder='검색어로 검색하기'/>
                     <button className={styles.search_icon} onClick={'보도자료 onclick'}>
                         <span class="material-symbols-outlined">search</span>
                     </button>
