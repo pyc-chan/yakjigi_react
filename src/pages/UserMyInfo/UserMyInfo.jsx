@@ -10,17 +10,18 @@ import { Link, useNavigate } from 'react-router-dom';
             userId: '',
             userNickName: '춘식이',
             userProfile: '프로필 이름',
-            username: '',
+            username: '김춘식이',
             userGender: '남자',
             userPhone: '',
             userEmail: '',
             imagePath: null
         });
         
-        // 수정전 데이터
+        // 수정전 데이터    
         const [prevData, setPrevData] = useState({
             userNickName: '춘식이',
             userProfile: '프로필 이름',
+            username: '김춘식이',
             userGender: '남자',
             userPhone: '',
             imagePath: null
@@ -33,6 +34,7 @@ import { Link, useNavigate } from 'react-router-dom';
         // 수정중인 상태
         const [isEditingNickName, setIsEditingNickName] = useState(false);
         const [isEditingProfile, setIsEditingProfile] = useState(false);
+        const [isEditingName, setIsEditingName] = useState(false);
         const [isEditingGender, setIsEditingGender] = useState(false);
         const [isEditingPhone, setIsEditingPhone] = useState(false);
         const [isEditingOther, setIsEditingOther] = useState(false);
@@ -85,6 +87,14 @@ import { Link, useNavigate } from 'react-router-dom';
             }
         };
         
+        // 이름 수정상태
+        const toggleEditingName = () => {
+            if (!isEditingOther || isEditingName) {
+                setIsEditingName(prev => !prev);
+                setIsEditingOther(prev => !prev);
+            }
+        };
+        
         // 성별 수정상태
         const toggleEditingGender = () => {
             if(!isEditingOther || isEditingGender){
@@ -109,6 +119,7 @@ import { Link, useNavigate } from 'react-router-dom';
             setIsEditingOther(false);
             setIsEditingPhone(false);
             setIsEditingProfile(false);
+            setIsEditingName(false);
         };
         
         // 성별 수정
@@ -137,6 +148,15 @@ import { Link, useNavigate } from 'react-router-dom';
                 setUserData(prev => ({
                     ...prev, 
                     userNickName: event.target.value }));
+            }
+        };
+        
+        // 이름 수정
+        const nameChange = (event) => {
+            if(isEditingName){
+                setUserData(prev => ({
+                    ...prev, 
+                    username: event.target.value }));
             }
         };
         
@@ -246,6 +266,32 @@ import { Link, useNavigate } from 'react-router-dom';
             }
         };
         
+        
+        // 닉네임 저장
+        const submitName = async (event) => {
+            // 기본 실행 방지
+            event.preventDefault();
+            
+            try {
+                const response = await axios.patch('백엔드 API 주소', {
+                    user_name: userData.username,
+                });
+                // 서버로 전송된 후 처리
+                if (response.status === 200) {
+                    alert('닉네임이 업데이트되었습니다.');
+                    
+                    // 이전값 저장
+                    setPrevData(prev => ({
+                        ...prev,
+                        username: userData.username
+                    }));
+                    toggleEditingName();
+                }
+            } catch (error) {
+                console.error('서버와의 통신 중 오류 발생: 닉네임 저장', error);
+            }
+        };
+        
         // 프로필이미지 저장
         const submitProfile = async (event) => {
             // 기본 실행 방지
@@ -299,6 +345,7 @@ import { Link, useNavigate } from 'react-router-dom';
                         <form onSubmit={submitNickName}>
                             <span className={styles.input_title}>닉네임</span>
                             <input className={styles.input_id} value={userData.userNickName} onChange={nickNameChange} readOnly={!isEditingNickName} />
+                            {/* 수정중일때 저장/취소 버튼 아닐때 변경하기 버튼 */}
                             {isEditingNickName ?
                                 <>
                                     <div className={styles.input_submit_cancel}>
@@ -327,6 +374,7 @@ import { Link, useNavigate } from 'react-router-dom';
                             <form onSubmit={submitProfile}>
                             <input type='text' className={styles.input_profile} readOnly value={userData.userProfile}></input>
                             <input id='fileInput' type="file" className={styles.input_profile_none} onChange={profileChange} />
+                            {/* 수정중일때 저장/취소 버튼 아닐때 변경하기 버튼 */}
                             {isEditingProfile ? (
                                 <>
                                     <button onClick={fileClick} className={styles.input_file_find}>파일 찾기</button>
@@ -341,8 +389,20 @@ import { Link, useNavigate } from 'react-router-dom';
                             </form>
                         
                         <hr className={styles.input_hr}/>
-                            <span className={styles.input_title}>이름</span>
-                            <input className={styles.input_id} readOnly value={"user_name"}/* {`${data.user_name}`} */ />
+                            <form onSubmit={submitName}>
+                                <span className={styles.input_title}>이름</span>
+                                <input className={styles.input_id} value={userData.username} onChange={nameChange} readOnly={!isEditingName} />
+                                {/* 수정중일때 저장/취소 버튼 아닐때 변경하기 버튼 */}
+                                {isEditingName ?
+                                    <>
+                                        <div className={styles.input_submit_cancel}>
+                                            <button type="submit" className={styles.input_submit}>저장</button>
+                                            <button className={styles.input_cancel} onClick={editingCancel}>취소</button>
+                                        </div>
+                                    </> :
+                                    <button className={styles.input_edit} onClick={toggleEditingName}>변경하기</button>
+                                }
+                            </form>
                         <hr className={styles.input_hr}/>
                         <form onSubmit={submitGender}>
                             <span className={styles.input_title}>성별</span>
@@ -357,6 +417,7 @@ import { Link, useNavigate } from 'react-router-dom';
                                     <input type="radio" className={styles.input_radio} value={"기타"} name='gender' checked={userData.userGender === '기타'} onChange={genderChange} /> 기타
                                 </label>
                             </div>
+                            {/* 수정중일때 저장/취소 버튼 아닐때 변경하기 버튼 */}
                             {isEditingGender ? 
                                 <>
                                     <button type='submit' className={styles.input_submit}>저장</button>
@@ -368,6 +429,7 @@ import { Link, useNavigate } from 'react-router-dom';
                         <form onSubmit={submitPhone}>
                             <span className={styles.input_title}>전화번호</span>
                             <input className={styles.input_id} value={userData.userPhone} onChange={phoneChange} />
+                            {/* 수정중일때 저장/취소 버튼 아닐때 변경하기 버튼 */}
                             {isEditingPhone ?
                                 <>
                                     <button type="submit" className={styles.input_submit}>저장</button>

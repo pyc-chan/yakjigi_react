@@ -162,6 +162,7 @@
     border-radius: 5px;
     margin-left: 16px;
     font-size: 16px;
+    border: none;
 }
 
 .input_cancel{
