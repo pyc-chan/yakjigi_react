@@ -74,12 +74,14 @@
     width: 100px;
     border-radius: 50%;
 }
+
 .content_container{
     max-width: 1320px;
     width: 100%;
     margin: 0 auto;
     background-color: #bbb;
 }
+
 @media screen and (max-width: 1024px) {
     .content_container{
         width: 90%;

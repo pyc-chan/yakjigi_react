@@ -167,12 +167,12 @@
 .input_cancel{
     width: 130px;
     height: 40px;
-    border: 1px solid #aaa;
-    color: #666;
+    border: 1px solid #ccc;
+    color: #555;
     border-radius: 5px;
     margin-left: 16px;
     font-size: 16px;
-}
+}   
 
 .input_submit_cancel{
     display: inline-block;
